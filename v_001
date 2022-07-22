@@ -3,3 +3,39 @@ In the beginning...
 **/
 
 
+/**
+ * Returns an array with unique rows.
+ * @desc Returns an array with unique rows.
+ * @param {array} input_array
+ * @return {array} output_array
+ */
+function unique_rows(input_array){
+  let output_array = [];
+  // console.log(input_array);
+
+  // Loops through the input array.
+  for (let i = 0; i < input_array.length; i++){
+    // console.log(i,input_array[i]);
+    
+    let unique = true; // Default setting for each row.
+
+    // Loop to compare output_array for matching rows. 
+    for (let n = 0; n < output_array.length; n++){
+      // console.log(i,n,input_array[i], output_array[n],input_array[i].toString() == output_array[n].toString());
+
+      // Flag if there is a matching row within output_array.
+      if (input_array[i].toString() == output_array[n].toString()){
+        unique = false;
+      }
+    }
+
+    // If the row is not in output_array, add it in.
+    if (unique){
+      output_array.push(input_array[i]);
+    }
+
+  }
+
+  console.log(output_array);
+  return output_array;
+}
